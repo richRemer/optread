@@ -1,6 +1,6 @@
 {
   "name": "optread",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "iterable argument parser",
   "main": "optread.js",
   "scripts": {

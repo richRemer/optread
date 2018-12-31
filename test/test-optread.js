@@ -43,6 +43,15 @@ describe("iterating over options", () => {
         expect(done.done).to.be(true);
         expect(argv.length).to.be(2);
     });
+
+    it("should stop at terminator", () => {
+        argv.splice(1, 0, "--");
+
+        const foo = iterable.next();
+        const done = iterable.next();
+
+        expect(done.done).to.be(true);
+    });
 });
 
 describe("errors", () => {

@@ -26,13 +26,9 @@ for (const [opt, readval] of optread(argv)) {
         case "--working-dir":
             options.workingDir = readval();
             break;
-        case "--":
-            break;
         default:
             throw new Error(`invalid option: ${opt}`);
     }
-
-    if (opt === "--") break;
 }
 
 // argv contains remaining arguments, if any

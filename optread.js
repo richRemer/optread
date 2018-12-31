@@ -5,16 +5,13 @@
  * @param {string[]} argv
  * @returns {Generator}
  */
-function* argvparse(argv) {
+function* optread(argv) {
     while (argv.length && /^-./.test(argv[0])) {
         let curr = argv[0];
 
         if (curr === "--") {
-            yield ["--", () => {
-                throw new Error("terminator cannot have value");
-            }];
-
             argv.shift();
+            return;
         } else if (/^--.+=/.test(curr)) {
             let opt = curr.replace(/=.*/, ""),
                 val = curr.replace(/^.+?=/, ""),
@@ -69,4 +66,4 @@ function* argvparse(argv) {
     }
 }
 
-module.exports = argvparse;
+module.exports = optread;
